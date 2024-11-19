@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="header">
             <div className="header-content">
-                <h1>Loja de Informática</h1>
+                <h1>Lojinha</h1>
                 <p>Encontre tudo o que você precisa em um só lugar</p>
             </div>
             <nav className="header-nav">

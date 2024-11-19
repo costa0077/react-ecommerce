@@ -1,15 +1,13 @@
 .product-list {
     padding: 20px;
-}
-
-.products {
+  }
+  .products {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-}
-
-.product-card {
+  }
+  .product-card {
     background-color: #1f1f1f;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -17,18 +15,13 @@
     padding: 20px;
     width: 250px;
     text-align: center;
-    min-height: 400px;
-    /* Altura mínima adicionada */
-}
-
-
-.product-image {
-    width: 100%;
+  }
+  .product-image {
+    width: 80%;
     height: auto;
     margin-bottom: 15px;
-}
-
-.details-button {
+  }
+  .details-button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px;
@@ -36,4 +29,5 @@
     color: white;
     text-decoration: none;
     border-radius: 4px;
-}
+  }
+  

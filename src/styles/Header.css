@@ -1,6 +1,4 @@
 .header {
-    position: static;
-    /* Certifique-se de que não é fixed */
     background-color: #1f1f1f;
     color: #ffffff;
     display: flex;
@@ -8,36 +6,29 @@
     align-items: center;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.header-content {
+  }
+  .header-content {
     text-align: left;
-}
-
-.header h1 {
+  }
+  .header h1 {
     margin: 0;
     font-size: 2.5em;
-}
-
-.header p {
+  }
+  .header p {
     margin: 5px 0 0;
     font-size: 1.2em;
-}
-
-.header-nav {
+  }
+  .header-nav {
     display: flex;
     gap: 20px;
-}
-
-.nav-link {
+  }
+  .nav-link {
     color: #ffffff;
     text-decoration: none;
     font-size: 1.2em;
     transition: color 0.3s ease;
-}
-
-.nav-link:hover {
+  }
+  .nav-link:hover {
     color: #00bcd4;
-}
+  }
+  
