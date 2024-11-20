@@ -33,10 +33,8 @@ function ProductList() {
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>Preço: R${product.price}</p>
-            <div className="product-actions">
-              <button onClick={() => addToCart(product)} className="add-to-cart-button">Adicionar ao Carrinho</button>
-              <Link to={`/product/${product.id}`} className="details-button">Ver Detalhes</Link>
-            </div>
+            <button onClick={() => addToCart(product)} className="add-to-cart-button">Adicionar ao Carrinho</button>
+            <Link to={`/product/${product.id}`} className="details-button">Ver Detalhes</Link>
           </div>
         ))}
       </div>

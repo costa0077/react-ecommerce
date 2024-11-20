@@ -25,20 +25,16 @@ function ProductDetails() {
   };
 
   if (!product) {
-    return <div className="loading">Carregando...</div>;
+    return <div>Carregando...</div>;
   }
 
   return (
     <div className="product-details">
-      <div className="product-details-container">
-        <img src={product.images[0]} alt={product.title} className="product-details-image" />
-        <div className="product-info">
-          <h2 className="product-title">{product.title}</h2>
-          <p className="product-description">{product.description}</p>
-          <p className="product-price">Preço: R${product.price}</p>
-          <button onClick={addToCart} className="add-to-cart-button">Adicionar ao Carrinho</button>
-        </div>
-      </div>
+      <img src={product.images[0]} alt={product.title} className="product-details-image" />
+      <h2>{product.title}</h2>
+      <p>{product.description}</p>
+      <p>Preço: R${product.price}</p>
+      <button onClick={addToCart} className="add-to-cart-button">Adicionar ao Carrinho</button>
     </div>
   );
 }

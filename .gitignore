@@ -4,21 +4,80 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependências do Node
+node_modules/
+.pnp
+.pnp.js
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# Arquivos de build
+dist/
+build/
+
+# Logs do Yarn
+.yarn-integrity
+
+# Informações sobre pacotes
+package-lock.json
+yarn.lock
+
+# Diretório de dependências Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Arquivos de Ambiente
+.env
+.env.test
+.env.production
+.env.local
+
+# Configurações do Editor/IDE
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Diretórios temporários
+tmp/
+temp/
+
+# Arquivos de sistema do MacOS
+.DS_Store
+
+# Arquivos gerados automaticamente pelo sistema Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Coverage do Jest
+coverage/
+
+# Configurações de ESLint e outras ferramentas que podem gerar cache
+.eslintcache
+
+# Arquivos relacionados ao Docker
+Dockerfile
+docker-compose.yml
+
+# Build do React/Vite
+.vite/
+.vitepress/cache
+out/
+cache/
+
+# Arquivos de debug do TypeScript
+*.tsbuildinfo
+
+# Arquivos de lock e cache que não são necessários
+.pnpm-debug.log
+*.pid
+
+# Arquivos locais do React e React Native
+expo/
+.expo/
