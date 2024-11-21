@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode'; // Utilize diretamente jwtDecode
-import { getToken, login, logout, register } from '../services/authService';
+import {jwtDecode} from 'jwt-decode'; // Importando jwtDecode diretamente
+import { getToken, login, logout } from '../services/authService'; // Certifique-se de importar corretamente
 
 export const AuthContext = createContext();
 
@@ -30,11 +30,9 @@ export const AuthProvider = ({ children }) => {
       const response = await login(userData);
       const token = response.token;
       if (token) {
-        localStorage.setItem('token', token);
-        const decodedToken = jwtDecode(token);
-        setUser(decodedToken);
+        setUser(jwtDecode(token));
         setIsAuthenticated(true);
-        navigate('/'); // Navegar para a home após o login
+        navigate('/dashboard'); // Redireciona para o painel após o login
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
@@ -45,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     logout();
     setUser(null);
     setIsAuthenticated(false);
-    navigate('/login'); // Navegar para a tela de login após o logout
+    navigate('/login'); // Redireciona para a tela de login após o logout
   };
 
   return (

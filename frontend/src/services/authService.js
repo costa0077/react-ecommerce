@@ -1,40 +1,40 @@
 // frontend/src/services/authService.js
-import axios from 'axios';
+import axios from 'axios'; // Adicione esta linha
 
-const API_URL = 'http://localhost:5000/api/auth';
+// Função para armazenar o token no localStorage
+export const saveToken = (token) => {
+  localStorage.setItem('token', token);
+};
 
-// Função para registrar um usuário
-export const register = async (userData) => {
+// Função para obter o token do localStorage
+export const getToken = () => {
+  return localStorage.getItem('token');
+};
+
+// Função para fazer o login
+export const login = async (userData) => {
   try {
-    const response = await axios.post(`${API_URL}/register`, userData);
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token);
-    }
+    const response = await axios.post('http://localhost:5000/api/auth/login', userData);
+    saveToken(response.data.token); // Salva o token após o login bem-sucedido
     return response.data;
   } catch (error) {
-    throw error.response.data.message;
+    console.error('Erro ao fazer login:', error);
+    throw error;
   }
 };
 
-// Função para login
-export const login = async (userData) => {
+// Função para registro
+export const register = async (userData) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, userData);
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token);
-    }
+    const response = await axios.post('http://localhost:5000/api/auth/register', userData);
     return response.data;
   } catch (error) {
-    throw error.response.data.message;
+    console.error('Erro ao registrar usuário:', error);
+    throw error;
   }
 };
 
 // Função para logout
 export const logout = () => {
   localStorage.removeItem('token');
-};
-
-// Função para obter o token do usuário autenticado
-export const getToken = () => {
-  return localStorage.getItem('token');
 };

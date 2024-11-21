@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { register } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Register.css';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,8 @@ function Register() {
       await register(formData);
       navigate('/'); // Redireciona para a página inicial após o cadastro
     } catch (err) {
-      setError(err);
+      // Define a mensagem de erro como uma string
+      setError(err.response?.data?.message || err.message || 'Erro ao registrar o usuário');
     }
   };
 
