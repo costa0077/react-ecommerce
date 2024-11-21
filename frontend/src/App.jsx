@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
@@ -26,9 +27,12 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/dashboard/*" element={<AdminRoute />}>
-                <Route path="" element={<AdminDashboard />} />
-              </Route>
+              {/* Rota protegida para o painel do administrador */}
+              <Route path="/dashboard" element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              } />
             </Routes>
           </div>
         </CartProvider>

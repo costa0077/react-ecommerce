@@ -31,4 +31,24 @@
   .nav-link:hover {
     color: #00bcd4;
   }
+  /* frontend/src/styles/Header.css */
+.cart-count {
+  background-color: red;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 50%;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+/* frontend/src/styles/Header.css */
+.header .header-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.header .header-nav .nav-link.highlight {
+  color: #ff9800;
+  transition: color 0.3s ease;
+}
+
   

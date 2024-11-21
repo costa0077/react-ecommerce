@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react';
+// frontend/src/components/ProductDetails.jsx
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CartContext from '../context/CartContext';
+import { useCart } from '../context/CartContext';
 import axios from 'axios';
 import '../styles/ProductDetails.css';
 
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   useEffect(() => {
-    // Buscar detalhes do produto por ID da API
     axios.get(`https://dummyjson.com/products/${id}`)
       .then(response => {
         setProduct(response.data);

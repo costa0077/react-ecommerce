@@ -1,10 +1,12 @@
-import React from 'react';
+// frontend/src/components/Header.jsx
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // Certifique-se de importar corretamente o hook
+import CartContext from '../context/CartContext';
 import '../styles/Header.css';
 
 function Header() {
-  const { user, handleLogout } = useAuth();
+  const { cart } = useContext(CartContext);
+  const itemCount = cart.items.reduce((count, item) => count + (item.quantity || 1), 0);
 
   return (
     <header className="header">
@@ -14,20 +16,10 @@ function Header() {
       </div>
       <nav className="header-nav">
         <Link to="/" className="nav-link">Home</Link>
-        <Link to="/cart" className="nav-link">Carrinho</Link>
+        <Link to="/cart" className="nav-link">Carrinho ({itemCount})</Link>
         <Link to="/checkout" className="nav-link">Checkout</Link>
-        {!user && (
-          <>
-            <Link to="/login" className="nav-link">Login</Link>
-            <Link to="/register" className="nav-link">Cadastro</Link>
-          </>
-        )}
-        {user?.role === 'administrador' && (
-          <Link to="/dashboard" className="nav-link">Painel Admin</Link>
-        )}
-        {user && (
-          <button onClick={handleLogout} className="logout-button">Sair</button>
-        )}
+        <Link to="/login" className="nav-link">Login</Link>
+        <Link to="/register" className="nav-link">Cadastro</Link>
       </nav>
     </header>
   );

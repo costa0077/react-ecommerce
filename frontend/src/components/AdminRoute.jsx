@@ -1,14 +1,17 @@
-import React, { useContext } from 'react';
+// frontend/src/components/AdminRoute.jsx
+import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 function AdminRoute({ children }) {
-  const { isAuthenticated, user } = useContext(AuthContext);
+  const { user, isAuthenticated } = useAuth();
 
-  if (!isAuthenticated || user?.role !== 'admin') {
+  if (!isAuthenticated || user.role !== 'administrador') {
+    // Redireciona para login se não estiver autenticado ou não for administrador
     return <Navigate to="/login" />;
   }
 
+  // Renderiza o conteúdo da rota do administrador se a autenticação for válida
   return children;
 }
 
