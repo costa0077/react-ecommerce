@@ -5,33 +5,41 @@ import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
 
 function Cart() {
-  const { cart, dispatch } = useCart();
+  const { cartItems, removeFromCart } = useCart();
 
-  const removeItem = (id) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: { id } });
+  const calculateTotal = () => {
+    return cartItems ? cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2) : '0.00';
   };
-
-  if (cart.items.length === 0) {
-    return <div className="empty-cart">Seu carrinho está vazio. <Link to="/">Volte à loja</Link></div>;
-  }
 
   return (
     <div className="cart">
-      <h1>Carrinho</h1>
-      <ul>
-        {cart.items.map(item => (
-          <li key={item.id} className="cart-item">
-            <img src={item.images[0]} alt={item.title} className="cart-item-image" />
-            <div className="cart-item-details">
-              <h3>{item.title}</h3>
-              <p>Preço: R${item.price}</p>
-              <p>Quantidade: {item.quantity}</p>
-              <button onClick={() => removeItem(item.id)} className="remove-button">Remover</button>
+      <h1>Meu Carrinho</h1>
+      {cartItems && cartItems.length === 0 ? (
+        <p>O carrinho está vazio.</p>
+      ) : (
+        <div className="cart-items">
+          {cartItems && cartItems.map((item, index) => (
+            <div key={index} className="cart-item">
+              <img src={item.images[0]} alt={item.title} className="cart-item-image" />
+              <div className="cart-item-details">
+                <h2>{item.title}</h2>
+                <p>Preço: R${item.price}</p>
+                <button onClick={() => removeFromCart(item.id)} className="remove-from-cart-button">
+                  Remover
+                </button>
+              </div>
             </div>
-          </li>
-        ))}
-      </ul>
-      <Link to="/checkout"><button className="checkout-button">Prosseguir para o Checkout</button></Link>
+          ))}
+        </div>
+      )}
+      {cartItems && cartItems.length > 0 && (
+        <div className="cart-summary">
+          <p>Total: R${calculateTotal()}</p>
+          <Link to="/checkout" className="checkout-button">
+            Ir para o Checkout
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

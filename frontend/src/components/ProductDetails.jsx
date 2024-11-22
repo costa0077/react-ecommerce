@@ -8,9 +8,10 @@ import '../styles/ProductDetails.css';
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const { dispatch } = useCart();
+  const { addToCart } = useCart();
 
   useEffect(() => {
+    // Buscar detalhes do produto por ID da API
     axios.get(`https://dummyjson.com/products/${id}`)
       .then(response => {
         setProduct(response.data);
@@ -19,10 +20,6 @@ function ProductDetails() {
         console.error('Erro ao buscar o produto:', error);
       });
   }, [id]);
-
-  const addToCart = () => {
-    dispatch({ type: 'ADD_ITEM', payload: product });
-  };
 
   if (!product) {
     return <div>Carregando...</div>;
@@ -34,7 +31,7 @@ function ProductDetails() {
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <p>Preço: R${product.price}</p>
-      <button onClick={addToCart} className="add-to-cart-button">Adicionar ao Carrinho</button>
+      <button onClick={() => addToCart(product)} className="add-to-cart-button">Adicionar ao Carrinho</button>
     </div>
   );
 }

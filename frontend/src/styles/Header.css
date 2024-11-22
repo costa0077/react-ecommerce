@@ -1,54 +1,57 @@
+/* frontend/src/styles/Header.css */
 .header {
-    background-color: #1f1f1f;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .header-content {
-    text-align: left;
-  }
-  .header h1 {
-    margin: 0;
-    font-size: 2.5em;
-  }
-  .header p {
-    margin: 5px 0 0;
-    font-size: 1.2em;
-  }
-  .header-nav {
-    display: flex;
-    gap: 20px;
-  }
-  .nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-  }
-  .nav-link:hover {
-    color: #00bcd4;
-  }
-  /* frontend/src/styles/Header.css */
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  /* Mantém o header fixo no topo da página */
+  top: 0;
+  z-index: 1000;
+}
+
+.header-logo a {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+  /* Mantém o logo em branco para destacar no fundo azul */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-logo a:hover {
+  color: #4fc3f7;
+  /* Azul claro ao passar o mouse sobre o logo */
+}
+
+.header-nav {
+  display: flex;
+  gap: 30px;
+  /* Maior espaçamento entre os links do menu */
+}
+
+.nav-link {
+  font-size: 1.1em;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #ffffff;
+  /* Fundo branco ao passar o mouse */
+  color: #0aa3e9;
+  /* Texto azul ao passar o mouse */
+}
+
 .cart-count {
-  background-color: red;
-  color: white;
-  padding: 3px 6px;
-  border-radius: 50%;
-  font-size: 0.8em;
+  color: #4fc3f7;
+  /* Azul claro para destacar o número do carrinho */
+  font-weight: bold;
+  font-size: 0.9em;
   margin-left: 5px;
 }
-/* frontend/src/styles/Header.css */
-.header .header-nav .nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.header .header-nav .nav-link.highlight {
-  color: #ff9800;
-  transition: color 0.3s ease;
-}
-
-  

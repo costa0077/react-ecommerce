@@ -1,3 +1,4 @@
+// frontend/src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
@@ -7,8 +8,7 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminRoute from './components/AdminRoute'; // Importando AdminRoute
+import OrderHistory from './pages/OrderHistory';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import './styles/App.css';
@@ -27,12 +27,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              {/* Rota protegida para o painel do administrador */}
-              <Route path="/dashboard" element={
-                <AdminRoute>
-                  <AdminDashboard />
-                </AdminRoute>
-              } />
+              <Route path="/orders" element={<OrderHistory />} />
             </Routes>
           </div>
         </CartProvider>
