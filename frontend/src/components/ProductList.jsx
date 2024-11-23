@@ -4,11 +4,7 @@ import axios from 'axios';
 import { Grid, Card, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import '../styles/ProductList.css'; 
-=======
-import '../styles/ProductList.css'; // Importando o CSS atualizado
->>>>>>> deefb4f85eb095108c0851f59c72e1dcb5ebcd8d
 
 function ProductList() {
   const [products, setProducts] = useState([]);
