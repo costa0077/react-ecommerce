@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useAuth } from '../context/AuthContext';
+// frontend/src/pages/Login.jsx
+import React, { useState, useContext } from 'react';
+import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { AuthContext } from '../context/AuthContext';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-  const { handleLogin } = useAuth();
+  const { loginUser } = useContext(AuthContext);
 
-  const onSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      handleLogin(response.data.token); // Atualiza o estado de autenticação e armazena o token
-      navigate('/dashboard'); // Navega para o painel de administração após o login
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-    }
+    loginUser({ email, password });
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Senha" />
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
+    <Container maxWidth="sm">
+      <Box sx={{ mt: 8, p: 4, boxShadow: 3 }}>
+        <Typography variant="h4" component="h1" align="center" gutterBottom>
+          Login
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            required
+            margin="normal"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            label="Senha"
+            type="password"
+            variant="outlined"
+            fullWidth
+            required
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+            Entrar
+          </Button>
+        </form>
+      </Box>
+    </Container>
   );
 }
 

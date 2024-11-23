@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "root",
+        "password": null,
+        "database": "ecommerce_db",
+        "host": "127.0.0.1",
+        "dialect": "sqlite",
+        "storage": "./data/database.sqlite"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "ecommerce_test_db",
+        "host": "127.0.0.1",
+        "dialect": "sqlite",
+        "storage": "./data/test_database.sqlite"
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "ecommerce_prod_db",
+        "host": "127.0.0.1",
+        "dialect": "sqlite",
+        "storage": "./data/prod_database.sqlite"
+    }
+}
