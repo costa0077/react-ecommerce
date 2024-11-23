@@ -19,7 +19,7 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Header />
-          <div className="container">
+          <main className="container">
             <Routes>
               <Route path="/" element={<ProductList />} />
               <Route path="/product/:id" element={<ProductDetails />} />
@@ -29,7 +29,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/orders" element={<OrderHistory />} />
             </Routes>
-          </div>
+          </main>
         </CartProvider>
       </AuthProvider>
     </Router>
