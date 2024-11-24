@@ -1,0 +1,11 @@
+{
+  "homepage": "https://costa0077.github.io/react-ecommerce",
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  },
+  "scripts": {
+    "predeploy" : "npm run build",
+    "deploy": "gh-pages -d dist"
+
+  }
+}
