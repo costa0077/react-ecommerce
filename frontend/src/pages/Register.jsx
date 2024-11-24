@@ -1,17 +1,12 @@
-// frontend/src/pages/Register.jsx
 import React, { useState } from 'react';
-import { register } from '../services/authService';
-import { useNavigate } from 'react-router-dom';
-import '../styles/Register.css';
+import { registerUser } from '../services/authService';
 
 function Register() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
+    password: ''
   });
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,13 +15,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await register(formData);
-      navigate('/'); // Redireciona para a página inicial após o cadastro
-    } catch (err) {
-      // Define a mensagem de erro como uma string
-      setError(err.response?.data?.message || err.message || 'Erro ao registrar o usuário');
-    }
+    await registerUser(formData);
   };
 
   return (
@@ -59,7 +48,6 @@ function Register() {
         />
         <button type="submit">Cadastrar</button>
       </form>
-      {error && <p className="error">{error}</p>}
     </div>
   );
 }

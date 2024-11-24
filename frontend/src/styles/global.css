@@ -1,0 +1,159 @@
+/* frontend/src/styles/global.css */
+
+/* Estilo geral do body para centralizar tudo */
+body {
+    background-color: #121212;
+    /* Cor de fundo escura */
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    max-width: 1200px;
+    width: 100%;
+    background-color: #1976d2;
+    /* Azul médio */
+    padding: 20px 40px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Estilo do logo do Header */
+.header-logo a {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Menu de navegação do Header */
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #1e88e5;
+    color: #e3f2fd;
+}
+
+.cart-count {
+    color: #ffeb3b;
+    /* Amarelo claro */
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+/* Estilo da lista de produtos */
+.product-list {
+    margin-top: 40px;
+}
+
+.product-list-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Card de produto */
+.MuiCard-root {
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1f1f1f;
+    /* Cor de fundo do card */
+}
+
+.MuiCard-root:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.MuiCardMedia-root {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #333;
+}
+
+.MuiCardContent-root {
+    padding: 15px;
+}
+
+.MuiTypography-h6 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.MuiTypography-body2 {
+    color: #b0b0b0;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.MuiTypography-h5 {
+    margin-bottom: 10px;
+    color: #03a9f4;
+    /* Azul para o preço */
+}
+
+/* Botões do card */
+.MuiButton-root {
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+.MuiButton-contained {
+    background-color: #ff9800;
+    /* Laranja para o botão */
+}
+
+.MuiButton-contained:hover {
+    background-color: #e67e00;
+}
+
+.MuiButton-outlined {
+    color: #1976d2;
+    border-color: #1976d2;
+}
+
+.MuiButton-outlined:hover {
+    background-color: rgba(25, 118, 210, 0.1);
+}

@@ -11,25 +11,27 @@ import Register from './pages/Register';
 import OrderHistory from './pages/OrderHistory';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
-import './styles/App.css';
+import './styles/global.css';  // Importe o arquivo de estilo global
 
 function App() {
   return (
     <Router>
       <AuthProvider>
         <CartProvider>
-          <Header />
-          <main className="container">
-            <Routes>
-              <Route path="/" element={<ProductList />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/orders" element={<OrderHistory />} />
-            </Routes>
-          </main>
+          <div className="main-container">
+            <Header />
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<ProductList />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/orders" element={<OrderHistory />} />
+              </Routes>
+            </div>
+          </div>
         </CartProvider>
       </AuthProvider>
     </Router>
