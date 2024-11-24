@@ -5,7 +5,7 @@
         "database": "ecommerce_db",
         "host": "127.0.0.1",
         "dialect": "sqlite",
-        "storage": "./data/database.sqlite"
+        "storage": "C:/Program Files (x86)/sqlite3/ecommerce_db.sqlite"
     },
     "test": {
         "username": "root",
@@ -13,7 +13,7 @@
         "database": "ecommerce_test_db",
         "host": "127.0.0.1",
         "dialect": "sqlite",
-        "storage": "./data/test_database.sqlite"
+        "storage": "C:/Program Files (x86)/sqlite3/test_database.sqlite"
     },
     "production": {
         "username": "root",
@@ -21,6 +21,6 @@
         "database": "ecommerce_prod_db",
         "host": "127.0.0.1",
         "dialect": "sqlite",
-        "storage": "./data/prod_database.sqlite"
+        "storage": "C:/Program Files (x86)/sqlite3/prod_database.sqlite"
     }
 }

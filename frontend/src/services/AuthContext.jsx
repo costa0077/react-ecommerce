@@ -1,39 +1,41 @@
 // frontend/src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
-import { login, getToken, logout } from '../services/authService';
-import { useNavigate } from 'react-router-dom';
+import { getToken, login, logout } from '../services/authService'; // Corrija a importação para incluir `logout`
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const token = getToken();
         if (token) {
-            setUser({ token });
+            // Adicione sua lógica de autenticação aqui para definir o usuário autenticado
+            setIsAuthenticated(true);
         }
     }, []);
 
-    const loginUser = async (credentials) => {
+    const handleLogin = async (userData) => {
         try {
-            const data = await login(credentials);
-            setUser(data);
-            navigate('/');
+            const response = await login(userData);
+            if (response) {
+                setIsAuthenticated(true);
+                setUser(response.user); // Supondo que o usuário venha na resposta
+            }
         } catch (error) {
-            console.error('Login failed:', error);
+            console.error('Erro ao fazer login:', error);
         }
     };
 
-    const logoutUser = () => {
+    const handleLogout = () => {
         logout();
+        setIsAuthenticated(false);
         setUser(null);
-        navigate('/login');
     };
 
     return (
-        <AuthContext.Provider value={{ user, loginUser, logoutUser }}>
+        <AuthContext.Provider value={{ isAuthenticated, user, handleLogin, handleLogout }}>
             {children}
         </AuthContext.Provider>
     );

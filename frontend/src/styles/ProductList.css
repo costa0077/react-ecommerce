@@ -1,58 +1,79 @@
 /* frontend/src/styles/ProductList.css */
 
 .product-list {
-  padding: 40px;
+  padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.product-card {
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  background-color: #f8f9fa; /* Cor de fundo mais clara */
+.MuiTypography-h4 {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
-.product-card:hover {
+.MuiGrid-root {
+  gap: 20px;
+}
+
+.MuiCard-root {
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.MuiCard-root:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.product-image {
-  border-radius: 15px 15px 0 0;
+.MuiCardMedia-root {
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
 }
 
-.product-info {
-  padding: 20px;
-  text-align: center;
+.MuiCardContent-root {
+  padding: 15px;
 }
 
-.card-actions {
-  padding: 10px 16px;
-  display: flex;
-  justify-content: space-between;
+.MuiTypography-h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.add-to-cart-button {
-  background-color: #1976d2;
-  color: white;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+.MuiTypography-body2 {
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #b0b0b0;
+  margin-bottom: 10px;
 }
 
-.add-to-cart-button:hover {
-  background-color: #115293;
-  transform: scale(1.05);
+.MuiTypography-h5 {
+  margin-bottom: 15px;
+  color: #ff5722;
 }
 
-.view-details-button {
+.MuiButton-root {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-transform: none;
+}
+
+.MuiButton-contained {
+  background-color: #ff8c00;
+}
+
+.MuiButton-contained:hover {
+  background-color: #e67e00;
+}
+
+.MuiButton-outlined {
   color: #1976d2;
   border-color: #1976d2;
-  transition: all 0.3s ease;
 }
 
-.view-details-button:hover {
-  background-color: rgba(25, 118, 210, 0.1);
-  border-color: #115293;
-  color: #115293;
+.MuiButton-outlined:hover {
+  background-color: rgba(25, 118, 210, 0.04);
 }
